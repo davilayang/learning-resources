@@ -2,4 +2,9 @@
 
 > Data operations about growth
 
-## Reforge
+## Reforge Studying
+
+- Retention
+- Activation
+- Engagement
+- Resurrection
