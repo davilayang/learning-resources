@@ -2,33 +2,52 @@
 
 > Understand the ML algorithms
 
-## Algorithms
+## Basic Concepts
 
-Supervised Learning
+- Supervised Learning vs. Unsupervised Learning
+
+## Supervised Algorithms
 
 - Regressions
-  - Linear Regression
+  - [ ] Linear Regression
 - Classifications
-  - Logistic Regression
-  - Support Vector Machine
-  - Decision Tree
+  - [ ] Logistic Regression
+  - [ ] Support Vector Machine
+  - [ ] Decision Tree
+  - [ ] Random Forest
+- Neural Networks
+  - [ ] ...
+- ...
 
-Unsupervised Learning
+## UnSupervised Algorithms
 
 - Dimensionality Reduction
-  - Principal Component Analysis
+  - [ ] Principal Component Analysis
+  - [ ] NMF
   - ...
 - Clustering
-  - K Means
-  - Nearest Neighbor
-  - ...
+  - [ ] K Means
+  - [ ] K-Nearest Neighbor
+  - [ ] ...
+...
 
-Neural Networks
-
-- ...
-
-## Metrics
+## Metrics & Evaluations
 
 - Confusion Matrix
-  - ...
-- ...
+  - [ ] Precision
+  - [ ] Recall
+  - [ ] ...
+- Metrics for Model Performance
+  - [ ] Mean Squared Error
+  - [ ] Mean Squared Log Error
+  - [ ] Mean Absolute Error
+  - [ ] Median Absolute Error
+  - [ ] R Squared Score
+  - [ ] Explained Variance Score
+  - [ ] ...
+
+
+## Questions you should be able to answer
+
+- When to use a metric to evaluate a model performance?
+- Describe gradient descent to a child
