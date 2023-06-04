@@ -50,4 +50,5 @@
 ## Questions you should be able to answer
 
 - When to use a metric to evaluate a model performance?
+- What is a Lasso Regression? What is a Ridge Regression?
 - Describe gradient descent to a child
