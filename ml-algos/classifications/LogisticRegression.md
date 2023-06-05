@@ -98,10 +98,6 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp; Link function links **the mean of the dependent variable $Y$**, i.e. the expected value $E(Y)=μ$ to **the linear term (or linear combination) $\boldsymbol{X\beta}$** in such a way that the range of the non-linearly transformed mean $g(μ)$ ranges from $-\infty$ to $+\infty$. Thus you can actually form a linear equation $g(μ) = X\beta$ and use an iteratively reweighted least squares method for maximum likelihood estimation of the model parameters. The link function **transforms the probabilities of the levels of a categorical response variable (e.g. $\{0, 1\}$) to a continuous scale that is unbounded ($-\infty, +\infty$)**. Once the transformation is complete, the relationship between the predictors and the response can be modeled with linear regression.   
 
-<p align='center'>
-<img src='./references/link-function/J5w19.png' width='70%'>  
-</p>
-
 + $\gamma(\theta)$ is the cumulant moment generating function
 + $g(\mu)$ is the link function
 + link function $g$ relates the linear predictor to the mean
@@ -150,7 +146,7 @@ $$
 ### Sigmoid functions family
 
 [Sigmoid function](https://en.wikipedia.org/wiki/Sigmoid_function)  
-&nbsp;&nbsp;&nbsp;&nbsp; A sigmoid function is a mathematical function having a characteristic _"S"-shaped curve_ or sigmoid curve. _**Often, sigmoid function refers to the special case of the logistic function*. Sigmoid functions have domain of all real numbers, with _return value monotonically increasing most often from $0$ to $1$ or alternatively from $−1$ to $1$_, depending on convention.  
+&nbsp;&nbsp;&nbsp;&nbsp; A sigmoid function is a mathematical function having a characteristic _"S"-shaped curve_ or sigmoid curve. _**Often, sigmoid function refers to the special case of the logistic function**. Sigmoid functions have domain of all real numbers, with_ return value monotonically increasing most often from $0$ to $1$ or alternatively from $−1$ to $1$_, depending on convention.  
 
 Some of the sigmoid function family:  
 
