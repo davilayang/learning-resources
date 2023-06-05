@@ -1,5 +1,6 @@
-
 # About Logistic Regression
+
+<!-- markdownlint-disable MD033 -->
 
 ## Intuitions of Logistic Regression
 
