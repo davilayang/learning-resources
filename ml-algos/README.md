@@ -10,26 +10,27 @@
 
 ### Supervised Algorithms
 
-- Regressions
+- Regression
   - [ ] Linear Regression
-- Classifications
+- Classification
   - [ ] Logistic Regression
-  - [ ] Support Vector Machine
+  - [ ] Support Vector Machine (SVM)
   - [ ] Decision Tree
   - [ ] Random Forest
-- Neural Networks
+  - [ ] Naive Bayes
+- Neural Network
   - [ ] ...
 - ...
 
 ### UnSupervised Algorithms
 
 - Dimensionality Reduction
-  - [ ] Principal Component Analysis
+  - [ ] Principal Component Analysis (PCA)
   - [ ] NMF
   - ...
 - Clustering
   - [ ] K Means
-  - [ ] K-Nearest Neighbor
+  - [ ] K-Nearest Neighbour
   - [ ] ...
 ...
 
