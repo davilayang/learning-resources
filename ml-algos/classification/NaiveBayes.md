@@ -18,7 +18,7 @@ The goal is to select the class/label $C_i$ with the highest probability, i.e. m
 
 ### Reformulated model
 
-&nbsp;&nbsp;&nbsp;&nbsp; Problem with conditioanl probability model is that if number of features $n$ is large, it's impossible to compute $p(C_i | X)$. Therefore, the model is reformulated using _Baye's Theorem_:  
+&nbsp;&nbsp;&nbsp;&nbsp; Problem with conditional probability model is that if number of features $n$ is large, it's impossible to compute $p(C_i | X)$. Therefore, the model is reformulated using _Baye's Theorem_:  
 
 $$ P(C_i \mid X) = \cfrac{P(X \mid C_i) \times P(C_i)}{P(X)} $$
 
@@ -81,7 +81,7 @@ For each attribute $A_k$, we look at whether the attribute is categorical or con
 
 ## Steps of Naive Bayes Classifier Algorithm
 
-1. Calculate prior probabilty: $P(C_i)$
+1. Calculate prior probability: $P(C_i)$
 2. Calculate conditional probability for each attribute: $P(x_1|C_i), ..., P(x_n|C_i)$
     + if attribute is categorical
       + compute the conditional probability for each category of each attribute
@@ -123,7 +123,7 @@ If $P(A|B) = P(A)$, then events A and B are said to be independent: in such a ca
   + where $P(A \cap B)$ is the probability that both events A and B occur
 + $P(A \cap B) = P(A, B) = P(A \mid B) \times P(B) $
 
-#### Posterior Probabilty, 後驗機率
+#### Posterior Probability, 後驗機率
 
 [Posterior probability](https://en.wikipedia.org/wiki/Posterior_probability)  
 &nbsp;&nbsp;&nbsp;&nbsp; In Bayesian statistics, the posterior probability of a random event or an uncertain proposition is the conditional probability that is assigned after the relevant evidence or background is taken into account.  
