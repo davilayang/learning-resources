@@ -2,13 +2,19 @@
 
 <!-- markdownlint-disable MD033 -->
 
+<style>
+p { text-indent: 5%; }
+li { margin-left: -15px; }
+color1 { color: crimson; }
+</style>
+
 ## Intuitions of Logistic Regression
 
-<!-- general ideas about logistic regression, as in wiki first paragraph -->
-<!-- add some personal understanding to it -->
-&nbsp;&nbsp;&nbsp;&nbsp; With linear regression, the output is always a number that has its real meaning. Theoretically, the nubmer can be within the range of $-\infty$ and $+\infty$.  
-&nbsp;&nbsp;&nbsp;&nbsp; However, The output for a logistic regression is a number that represents the probability of the event happening (e.g. the probability of people clicking an ad online, the probability of death in titanic disaster, etc.)  
-&nbsp;&nbsp;&nbsp;&nbsp; The intuition behind logistic regression is to transform the output of a linear regression which has a wider range, to a range that probability lies in, which is within $[0,1]$. The transformation formula is using Logit function that maps a value to a number in the range of $[0,1]$.  
+With linear regression, the output is always a number that has its real meaning. Theoretically, the number can be within the range of $-\infty$ and $+\infty$.  
+
+However, the output for a logistic regression is **a number that represents the probability of the event happening** (e.g. the probability of people clicking an ad online, the probability of death in titanic disaster, etc.).  
+
+The intuition behind logistic regression is to <color1>transform the output of a linear regression, which has a wider range, to a range that probability lies in, which is within $[0,1]$. The transformation formula is using **Logit function** that maps a value to a number in the range of $[0,1]$</color1>.  
 
 1. Underlying logistic regression is a latent (unobservable) linear regression model:
     + $y^* = X\beta + u$
@@ -27,9 +33,9 @@
     + probability of event happending, $p$
     + $p=P(y=1 \mid X)  = \Lambda (X\beta) = \cfrac{1}{1+e^{-X\beta}}$
 
-&nbsp;&nbsp;&nbsp;&nbsp; In regression analysis, logistic regression (or logit regression) is estimating the parameters of a logistic model; it is a form of **binomial** regression. In the logistic model, the **log-odds (the logarithm of the odds) for the value labeled "1" is a linear combination (hence a linear model) of one or more independent variables (the predictors)**; the independent variables can each be a binary variable (two classes, coded by an indicator variable) or a continuous variable (any real value).  
+In regression analysis, logistic regression (or logit regression) is estimating the parameters of a logistic model; it is a form of **binomial** regression. In the logistic model, <color1>the **log-odds (the logarithm of the odds) for the value labeled "1" is a linear combination (hence a linear model) of one or more independent variables (the predictors)**</color1>; the independent variables can each be a binary variable (two classes, coded by an indicator variable) or a continuous variable (any real value).  
 
-&nbsp;&nbsp;&nbsp;&nbsp; The corresponding _probability_ of the value labeled "1" can vary between 0 (certainly the value "0") and 1 (certainly the value "1"), hence the labeling; **the function that converts log-odds to probability is the logistic function, hence the name**. The unit of measurement for the log-odds scale is called a _logit_, from _logistic unit_, hence the alternative names.
+ The corresponding _probability_ of the value labeled "1" can vary between 0 (certainly the value "0") and 1 (certainly the value "1"), hence the labeling; **the function that converts log-odds to probability is the logistic function, hence the name**. The unit of measurement for the log-odds scale is called a _logit_, from _logistic unit_, hence the alternative names.
 
 ## Steps of Logistic Regression Algorithm
 
@@ -55,24 +61,6 @@
     + **minimize loss/cost function**
     + **maximize (average) log-likelihood**
 
-<!-- 
-1. Categorical response variable $(y)$, with continuous explanatory variables $(x)$.
-    + cannot be represented well by linear regression
-    + e.g. response is either $y=1$ or $y=0$
-2. Logit Transformation, using Logit function
-    + transfrom data to logit/log-odds, having range from $-\infty$ to $+\infty$
-    + form: $logit = \log \big(\frac{P}{1-P} \big) = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_kX_k = \beta X $
-        + $P$ is defined as the probability of $y = 1$
-        + $\beta_k$ for the parameters we are trying to estimate
-        + usually $\log$ is using natural logarithm $\ln$
-3. Logistic function, for probability
-    + transfrom from logit/log-odds to probability, having range from $0$ to $1$
-    + if probability > threshold, treated as $y = 1$
-    + if probability < threshold, treated as $y = 0$
-    + form: $probability = \frac{1}{1+e^{-X\beta}}$
-4. Compute error/cost
-5. Update parameters by Gradient Descend -->
-
 ## Backgrounds of Logistic Regression
 
 1. Link function
@@ -85,19 +73,19 @@
 
 ### Link function
 
-<!-- what is a link function? -->
 [Link Function, wikipedia](https://en.wikipedia.org/wiki/Generalized_linear_model#Link_function)  
-&nbsp;&nbsp;&nbsp;&nbsp; A link function provides the relationship between **the linear predictor** and **the mean of the distribution function**. There are many commonly used link functions, and their choice is informed by several considerations. There is always a well-defined canonical link function which is derived from the exponential of _the response's density function_, e.g. compare response of linear regression with generalized linear model:  
+
+A link function provides the relationship between **the linear predictor** and **the mean of the distribution function**. There are many commonly used link functions, and their choice is informed by several considerations. There is always a well-defined canonical link function which is derived from the exponential of _the response's density function_, e.g. compare response of linear regression with generalized linear model:  
 
 + Linear Regression
   + assumes that the response variable is normally distributed
     + with response ranging from $-\infty$ to $+\infty$
-+ Generalized Liear Model (just some examples)
++ Generalized Linear Model (just some examples)
   + can be of Bernoulli distribution, with response $\{0, 1\}$
   + can be of Binomial distribution, with response $\{0, 1, ..., N\}$
-  + can be of Exponential, Poisson, Categorical, Multinomial ... distributio
+  + can be of Exponential, Poisson, Categorical, Multinomial ... distribution
 
-&nbsp;&nbsp;&nbsp;&nbsp; Link function links **the mean of the dependent variable $Y$**, i.e. the expected value $E(Y)=μ$ to **the linear term (or linear combination) $\boldsymbol{X\beta}$** in such a way that the range of the non-linearly transformed mean $g(μ)$ ranges from $-\infty$ to $+\infty$. Thus you can actually form a linear equation $g(μ) = X\beta$ and use an iteratively reweighted least squares method for maximum likelihood estimation of the model parameters. The link function **transforms the probabilities of the levels of a categorical response variable (e.g. $\{0, 1\}$) to a continuous scale that is unbounded ($-\infty, +\infty$)**. Once the transformation is complete, the relationship between the predictors and the response can be modeled with linear regression.   
+ Link function links **the mean of the dependent variable $Y$**, i.e. the expected value $E(Y)=μ$ to **the linear term (or linear combination) $\boldsymbol{X\beta}$** in such a way that the range of the non-linearly transformed mean $g(μ)$ ranges from $-\infty$ to $+\infty$. Thus you can actually form a linear equation $g(μ) = X\beta$ and use an iteratively reweighted least squares method for maximum likelihood estimation of the model parameters. The link function **transforms the probabilities of the levels of a categorical response variable (e.g. $\{0, 1\}$) to a continuous scale that is unbounded ($-\infty, +\infty$)**. Once the transformation is complete, the relationship between the predictors and the response can be modeled with linear regression.   
 
 + $\gamma(\theta)$ is the cumulant moment generating function
 + $g(\mu)$ is the link function
@@ -114,27 +102,29 @@
 <!-- When $Y$ is categorical, we use the _logit of $Y$_ as the response in our regression equation instead of just $Y$ itself:  
 $\ln{\bigg(\cfrac{P}{1-P}\bigg)} = \beta_0 + \beta_1X_1 + ... + \beta_kX_k$, where $P$ is defined as the probability that $Y=1$  
 
-&nbsp;&nbsp;&nbsp;&nbsp; The logit function is the natural log of the odds that Y equals one of the categories.  For mathematical simplicity, we’re going to assume Y has only two categories and code them as 0 and 1. -->
+The logit function is the natural log of the odds that Y equals one of the categories.  For mathematical simplicity, we’re going to assume Y has only two categories and code them as 0 and 1. -->
 
 ### Logit function
 
 [Logit, wikipedia](https://en.wikipedia.org/wiki/Logit)  
-&nbsp;&nbsp;&nbsp;&nbsp; In statistics, the logit function or the log-odds is the logarithm of the odds $\frac{p}{1 − p}$ where $p$ is the probability. It is a type of function that **creates a map of probability values from $[0,1]$ to $[-\infty ,+\infty]$**. It is the _inverse of the sigmoidal "logistic" function_ or logistic transform used in statistics.  
 
-&nbsp;&nbsp;&nbsp;&nbsp; Logit, the unit of measurement for the log-odds scale, is shortened from _Logistic Unit_. A **logit is defined as the log base $e$ (log) of the odds**, i.e. $logit(p) = \log(odds) = \log\big(\frac{p}{1-p}\big)$. The range of logit is from **negative infinity to positive infinity**.  
+In statistics, the logit function or the log-odds is the logarithm of the odds $\frac{p}{1 − p}$ where $p$ is the probability. It is a type of function that **creates a map of probability values from $[0,1]$ to $[-\infty ,+\infty]$**. It is the _inverse of the sigmoidal "logistic" function_ or logistic transform used in statistics.  
+
+Logit, the unit of measurement for the log-odds scale, is shortened from _Logistic Unit_. A **logit is defined as the log base $e$ (log) of the odds**, i.e. $logit(p) = \log(odds) = \log\big(\frac{p}{1-p}\big)$. The range of logit is from **negative infinity to positive infinity**.  
 
 + odds have range from $0$ to $infinity$
 + $\log(1)$ is $0$, $\log(0)$ is $-\infty$, and $\log(\infty)$ is $+\infty$
 + **therefore, $logit(p) = \log(odds)$ ranges from $-\infty$ to $+\infty$**
 
-&nbsp;&nbsp;&nbsp;&nbsp; If we call the parameter $\theta$, it is defined as follows: $logit(\theta) = \log(\frac{\theta}{1 - \theta})$. The **logistic** is a _the inverse of the logit_. if we have a value $x$, the logistic is: $logistic(x) = \frac{e^x}{1 + e^x}$.
+If we call the parameter $\theta$, it is defined as follows: $logit(\theta) = \log(\frac{\theta}{1 - \theta})$. The **logistic** is a _the inverse of the logit_. if we have a value $x$, the logistic is: $logistic(x) = \frac{e^x}{1 + e^x}$.
 
 ### Logistic function
 
 [Logistic function, wikipedia](https://en.wikipedia.org/wiki/Logistic_function)  
-&nbsp;&nbsp;&nbsp;&nbsp; Logistic function, a part of sigmoid function family, can handle a large set of continuous independent variables ($X$) and produce a binary output. Its form is: $h_\theta = \frac{1}{1 + e^{-z}} = \frac{1}{1 + e^{-\theta \cdot x}}$. The logistic function is the inverse of the natural logit function and so can be used to convert the logarithm of odds into a probability.
 
-&nbsp;&nbsp;&nbsp;&nbsp; Due to its sigmoid-shape and bounded in y-direction by 0 and 1, it's widely used to handle classification problems. The **decision boundary** of logistic regression is usually _chosen at the middle of the logistic function, namely at $z=0$ where the output value $y$ is $0.5$_.  
+Logistic function, a part of sigmoid function family, can handle a large set of continuous independent variables ($X$) and produce a binary output. Its form is: $h_\theta = \frac{1}{1 + e^{-z}} = \frac{1}{1 + e^{-\theta \cdot x}}$. The logistic function is the inverse of the natural logit function and so can be used to convert the logarithm of odds into a probability.
+
+Due to its sigmoid-shape and bounded in y-direction by 0 and 1, it's widely used to handle classification problems. The **decision boundary** of logistic regression is usually _chosen at the middle of the logistic function, namely at $z=0$ where the output value $y$ is $0.5$_.  
 $$
 y = \left\{
         \begin{array}{ll}
@@ -147,7 +137,8 @@ $$
 ### Sigmoid functions family
 
 [Sigmoid function](https://en.wikipedia.org/wiki/Sigmoid_function)  
-&nbsp;&nbsp;&nbsp;&nbsp; A sigmoid function is a mathematical function having a characteristic _"S"-shaped curve_ or sigmoid curve. _**Often, sigmoid function refers to the special case of the logistic function**. Sigmoid functions have domain of all real numbers, with_ return value monotonically increasing most often from $0$ to $1$ or alternatively from $−1$ to $1$_, depending on convention.  
+
+A sigmoid function is a mathematical function having a characteristic _"S"-shaped curve_ or sigmoid curve. _**Often, sigmoid function refers to the special case of the logistic function**. Sigmoid functions have domain of all real numbers, with_ return value monotonically increasing most often from $0$ to $1$ or alternatively from $−1$ to $1$_, depending on convention.  
 
 Some of the sigmoid function family:  
 
@@ -156,7 +147,7 @@ Some of the sigmoid function family:
 
 ### Inverse relationship between Logit and Logistic
 
-<!-- &nbsp;&nbsp;&nbsp;&nbsp; We know that logistic is the inverse of logit, and the we want to estimate the parameter $\theta$ to achieve a model to classify the independent variable $y$.  Here, we'll be using matrix notation where $X$ is an $N \times p$ matrix and $\beta$ is a $p \times 1$ vector. -->
+<!--  We know that logistic is the inverse of logit, and the we want to estimate the parameter $\theta$ to achieve a model to classify the independent variable $y$.  Here, we'll be using matrix notation where $X$ is an $N \times p$ matrix and $\beta$ is a $p \times 1$ vector. -->
 
 + **logit function**: $logit(\theta) = \log\big(\frac{\theta}{1-\theta}\big) = X\beta$
 + **logistic function**: $\theta = \frac{e^{X\beta}}{1+e^{X\beta}}$
@@ -169,8 +160,10 @@ Some of the sigmoid function family:
 ### Odds
 
 [Odds, wikipedia](https://en.wikipedia.org/wiki/Odds)  
-&nbsp;&nbsp;&nbsp;&nbsp; Odds are determined from probabilities _ranging between **0** and **infinity**_ and defined as _the ratio of the probability of success and the probability of failure_.  
-&nbsp;&nbsp;&nbsp;&nbsp; Odds are expressed in the form $X$ to $Y$, where $X$ and $Y$ are numbers. Usually, the word "to" is replaced by a symbol for ease of use, conventionally either a slash(/) or hyphen(-), although a colon(:) is sometimes seen.  
+
+Odds are determined from probabilities _ranging between **0** and **infinity**_ and defined as _the ratio of the probability of success and the probability of failure_.  
+
+Odds are expressed in the form $X$ to $Y$, where $X$ and $Y$ are numbers. Usually, the word "to" is replaced by a symbol for ease of use, conventionally either a slash(/) or hyphen(-), although a colon(:) is sometimes seen.  
 
 #### Example of Odds
 
@@ -189,9 +182,10 @@ For a event, with $sucess$ probability of $p = 0.8$ and $failure$ probability of
 ### Odds Ratio
 
 [Odds ratio, wikipedia](https://en.wikipedia.org/wiki/Odds_ratio)  
-&nbsp;&nbsp;&nbsp;&nbsp; The odds ratio (OR) is a statistic defined as **the ratio of the odds of A in the presence of B** and **the odds of A without the presence of B**.
 
-&nbsp;&nbsp;&nbsp;&nbsp; **If the OR is greater than 1, then A is considered to be associated with B** in the sense that, compared to the absence of B, the presence of B raises the odds of A. Note that _this does not establish that B causes A_. Often the odds ratio is used to compare the occurrence of some outcome (A) in the presence of some exposure (B), with the occurrence of the outcome (A) in the absence of a particular exposure (absence of B).  
+The odds ratio (OR) is a statistic defined as **the ratio of the odds of A in the presence of B** and **the odds of A without the presence of B**.
+
+**If the OR is greater than 1, then A is considered to be associated with B** in the sense that, compared to the absence of B, the presence of B raises the odds of A. Note that _this does not establish that B causes A_. Often the odds ratio is used to compare the occurrence of some outcome (A) in the presence of some exposure (B), with the occurrence of the outcome (A) in the absence of a particular exposure (absence of B).  
 
 #### Example of Odds Ratio
 
@@ -211,11 +205,14 @@ We can say, _for a male, the odds of being admitted are 5.44 times as large as t
 ### Maximum likelihood estimation
 
 [Maximum likelihood estimation, wikipedia](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation)  
-&nbsp;&nbsp;&nbsp;&nbsp; In statistics, maximum likelihood estimation (MLE) is **a method of estimating the parameters of a statistical model, given observations**. MLE attempts to **find the parameter values that maximize the likelihood function**, given the observations. The resulting estimate is called a maximum likelihood estimate, which is also abbreviated as MLE.  
-&nbsp;&nbsp;&nbsp;&nbsp; As an example, suppose that we are interested in the heights of adult female penguins, but are unable to measure the height of every penguin in a population (due to cost or time constraints). _Assuming that the heights are normally distributed with some unknown mean and variance, the mean and variance can be estimated with MLE while only knowing the heights of some sample of the overall population_. MLE would accomplish that by taking the mean and variance as parameters and finding particular parametric values that make the observed results the most probable given the normal model.  
 
-&nbsp;&nbsp;&nbsp;&nbsp; MLE is a method in statistics for **estimating parameter(s) of a model for given data**. The basic intuition behind MLE is that **the estimate which explains the data best, will be the best estimator**.  
-&nbsp;&nbsp;&nbsp;&nbsp; The main advantage of MLE is that it has **asymptotic property**. It means that **when the size of the data increases, the estimate converges faster towards the population parameter**. We use MLE for many techniques in statistics to estimate parameters. I have explained the general steps we follow to find an estimate for the parameter.
+In statistics, maximum likelihood estimation (MLE) is **a method of estimating the parameters of a statistical model, given observations**. MLE attempts to **find the parameter values that maximize the likelihood function**, given the observations. The resulting estimate is called a maximum likelihood estimate, which is also abbreviated as MLE.  
+
+As an example, suppose that we are interested in the heights of adult female penguins, but are unable to measure the height of every penguin in a population (due to cost or time constraints). _Assuming that the heights are normally distributed with some unknown mean and variance, the mean and variance can be estimated with MLE while only knowing the heights of some sample of the overall population_. MLE would accomplish that by taking the mean and variance as parameters and finding particular parametric values that make the observed results the most probable given the normal model.  
+
+MLE is a method in statistics for **estimating parameter(s) of a model for given data**. The basic intuition behind MLE is that **the estimate which explains the data best, will be the best estimator**.  
+
+The main advantage of MLE is that it has **asymptotic property**. It means that **when the size of the data increases, the estimate converges faster towards the population parameter**. We use MLE for many techniques in statistics to estimate parameters. I have explained the general steps we follow to find an estimate for the parameter.
 
 MLE Steps:  
 
@@ -237,7 +234,7 @@ $\hat{\theta} \in \{{ \underset{\theta \in \Theta} {\operatorname {arg max} }}\ 
   + given a statistical model, i.e. a family of distributions $\{f(\cdot \,;\theta )\mid \theta \in \Theta\}$
   + where $\theta$ denotes the (possibly multi-dimensional) parameter for the model
 
-&nbsp;&nbsp;&nbsp;&nbsp; The method of maximum likelihood **finds the values of the model parameter, $\theta$ , that maximize the likelihood function, ${\mathcal {L}}(\theta \,;x)$**
+The method of maximum likelihood **finds the values of the model parameter, $\theta$ , that maximize the likelihood function, ${\mathcal {L}}(\theta \,;x)$**
 
 #### Log-Likelihood
 
