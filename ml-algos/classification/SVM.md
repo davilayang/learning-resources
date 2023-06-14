@@ -1,37 +1,42 @@
 # About Support Vector Machine
 
+<!-- markdownlint-disable MD033 -->
+
+<style>
+p { text-indent: 5%; }
+li { margin-left: -15px; }
+color1 { color: crimson; }
+</style>
+
 ## Intuitions of SVM
 
 [Support-vector machine, wikipedia](https://en.wikipedia.org/wiki/Support-vector_machine)  
 
-Given a set of training examples, each marked as belonging to one or the other of two categories, an SVM training algorithm builds a model that assigns new examples to one category or the other, making it a _non-probabilistic binary linear classifier_.  
+Given a set of training examples, each marked as belonging to one or the other of two categories, an SVM training algorithm builds a model that _assigns new examples to one category or the other_, making it a **_non-probabilistic binary linear classifier_**.  
 
-An SVM model is a representation of the examples as points in space, mapped so that the examples of the separate categories are divided by a clear gap that is as wide as possible. New examples are then mapped into that same space and predicted to belong to a category based on which side of the gap they fall.  
+An SVM model is <color1>a representation of the examples as points in space, mapped so that the examples of the separate categories are divided by a clear gap that is as wide as possible</color1>. New examples are then mapped into that same space and predicted to belong to a category based on which side of the gap they fall.  
 
 In addition to performing linear classification, SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces.  
 
-**To Maximize margin**: we want to find the classifier whose decision boundary is furthest away from any data point.We can express the separating hyper-plane in terms of the data points that are closest to the boundary. And these points are called support vectors.  
-We would like to learn the weights that maximize the margin. So we have the hyperplane!
+<color1>**To Maximize margin**: we want to find the classifier whose decision boundary is furthest away from any data point.We can express the separating hyper-plane in terms of the data points that are closest to the boundary. And these points are called support vectors.</color1> We would like to learn the weights that maximize the margin. So we have the hyperplane!
 
-slow to train, fast to apply, since it's about finding the hyper plane; unlike knn to compute every distance
+### Advantages
 
-The advantages of support vector machines are:
++ **Effective in high dimensional spaces**
++ Still effective in cases where _number of dimensions is greater than the number of samples_
++ Uses a subset of training points in the decision function (called support vectors), so it is also **memory efficient**
++ Versatile: different **kernel functions can be specified for the decision function**. Common kernels are provided, but it is also possible to specify custom kernels.
 
-+ Effective in high dimensional spaces.
-+ Still effective in cases where number of dimensions is greater than the number of samples.
-+ Uses a subset of training points in the decision function (called support vectors), so it is also memory efficient.
-+ Versatile: different Kernel functions can be specified for the decision function. Common kernels are provided, but it is also possible to specify custom kernels.
+### Disadvantages
 
-The disadvantages of support vector machines include:
-
-+ If the number of features is much greater than the number of samples, avoid over-fitting in choosing Kernel functions and regularization term is crucial.
-+ SVMs do not directly provide probability estimates, these are calculated using an expensive five-fold cross-validation (see Scores and probabilities, below).
++ If the number of features is much greater than the number of samples, avoid over-fitting in choosing Kernel functions and regularization term is crucial
++ SVMs do not directly provide probability estimates, these are calculated using an expensive five-fold cross-validation
 
 ## Steps of SVM Algorithm
 
 ### Linear Separable data
 
-&nbsp;&nbsp;&nbsp;&nbsp; In the separable case, infinite decision boundaries are possible. The boundary that gives the maximum margin to the nearest observation is called the optimal hyperplane. The optimal hyperplane ensures the fit and robustness of the model. To find the optimal hyperplane, use the equation: $w \cdot X + b = 0$  
+In the linear separable case, infinite decision boundaries are possible. The boundary that gives the maximum margin to the nearest observation is called the **optimal hyperplane**. The optimal hyperplane ensures the fit and robustness of the model. To find the optimal hyperplane, use the equation: $w \cdot X + b = 0$  
 
 1. Prepare Dataset and Variables initializations
     + sample data are in 2D and with two labels
@@ -76,7 +81,7 @@ The disadvantages of support vector machines include:
 
 [Plane Equation, wikipedia](http://www.songho.ca/math/plane/plane.html)  
 
-+ Line Euqation, in 2-D
++ Line Equation, in 2-D
   + $y = m \cdot x + d$, is the same as $ax + by+ c = 0$
     + pf: $y = (\frac{-a}{b}) \cdot x + (\frac{-c}{b})$, i.e. $m = (\frac{-a}{b}), d = (\frac{-c}{b})$
   + can be written as: $ax_1 + b_2x_2 + c = 0$, there may be more than 26 dimensions
@@ -101,8 +106,8 @@ The disadvantages of support vector machines include:
 ### Vectors
 
 [Euclidean_vector, wikipedia](https://en.wikipedia.org/wiki/Euclidean_vector)  
-&nbsp;&nbsp;&nbsp;&nbsp; In mathematics, a Euclidean vector (or just "vector") is a geometric object that has **magnitude (or length) and direction**. A vector is what is needed to "carry" the point A to the point B; the Latin word vector means "carrier".  
-&nbsp;&nbsp;&nbsp;&nbsp; A Euclidean vector is frequently represented by a line segment with a definite direction, or graphically as an arrow, **connecting an initial point O with a terminal point A, and denoted by ${\vec{OA}}$**. **The magnitude or length of a vector $\vec{u}$ (O-A distance) is written as $|u|$ (sometimes it's written as $∥u∥$, to avoid confusion between scalar and vector)** and called its norm. The direction of the vector $\vec u$ is defined by the angle $\theta$ with respect to the horizontal axis, and by the angle $\alpha$ with respect to the vertical axis.  
+In mathematics, a Euclidean vector (or just "vector") is a geometric object that has **magnitude (or length) and direction**. A vector is what is needed to "carry" the point A to the point B; the Latin word vector means "carrier".  
+A Euclidean vector is frequently represented by a line segment with a definite direction, or graphically as an arrow, **connecting an initial point O with a terminal point A, and denoted by ${\vec{OA}}$**. **The magnitude or length of a vector $\vec{u}$ (O-A distance) is written as $|u|$ (sometimes it's written as $∥u∥$, to avoid confusion between scalar and vector)** and called its norm. The direction of the vector $\vec u$ is defined by the angle $\theta$ with respect to the horizontal axis, and by the angle $\alpha$ with respect to the vertical axis.  
 
 + On a 2-Dimension plane, with horizontal axis: dimension_1 and vertical axis: dimension_2
   + if $o:(0, 0)$ and $a:(3, 4)$
@@ -116,7 +121,7 @@ The disadvantages of support vector machines include:
 #### Dot Product of Vectors
 
 [Dot_product, wikipedia](https://en.wikipedia.org/wiki/Euclidean_vector#Dot_product)  
-&nbsp;&nbsp;&nbsp;&nbsp; The dot product of two vectors $a$ and $b$ is denoted by $\vec a \cdot \vec b$, can be computed by the multiplying the magnititude of both vectors and $\cos{\theta}$, where $\theta$ is the angle between the two vectors, or computed by _the sum of the products of the components of each vector_:  
+The dot product of two vectors $a$ and $b$ is denoted by $\vec a \cdot \vec b$, can be computed by the multiplying the magnititude of both vectors and $\cos{\theta}$, where $\theta$ is the angle between the two vectors, or computed by _the sum of the products of the components of each vector_:  
 
 1. $\vec a \cdot \vec b = ||\vec a|| \; ||\vec b|| \cos{\theta}$
     + where $\theta$ is the measure of the angle between $a$ and $b$
@@ -133,7 +138,7 @@ The disadvantages of support vector machines include:
 
 [Unit vector, wikipedia](https://en.wikipedia.org/wiki/Unit_vector)  
 &nbsp;&nbsp;&nbsp;&nbsp;The normalized vector or versor û of a non-zero vector $u$ is the unit vector in the direction of $u$, i.e., $\mathbf {\hat {u}} ={\cfrac {\mathbf {u} }{|\mathbf {u} |}}$, where $|u|$ is the norm (or length) of $u$.  
-&nbsp;&nbsp;&nbsp;&nbsp; **A unit vector is a vesctor which has a magnitude of 1**. The term **normalized vector** is sometimes used as a synonym for unit vector.  
+**A unit vector is a vesctor which has a magnitude of 1**. The term **normalized vector** is sometimes used as a synonym for unit vector.  
 
 #### Orthogonal Projection of a Vector
 
@@ -166,22 +171,22 @@ Prove the margin width is $\frac{2}{||\vec w||}$:
 #### Hard-margin
 
 [Hard-margin, wikipedia](https://en.wikipedia.org/wiki/Support-vector_machine#Hard-margin)  
-&nbsp;&nbsp;&nbsp;&nbsp; If the training data is _linearly separable_, we can select two parallel hyperplanes that separate the two classes of data, so that the distance between them is as large as possible. The equations for these two hyperplanes are:  
+If the training data is _linearly separable_, we can select two parallel hyperplanes that separate the two classes of data, so that the distance between them is as large as possible. The equations for these two hyperplanes are:  
 
 1. $\vec w \cdot \vec x - b = 1$, anything above is labelled as class +1
 2. $\vec w \cdot \vec x - b = -1$, anything below is labelled as class -1
 
-&nbsp;&nbsp;&nbsp;&nbsp; The distance between these two hyperplanes is $\frac{2}{||\vec w||}$, and the optimization goal is to maximize the margin (width), i.e. minimize $||\vec w||$. **Another constraint $y_i \times (\vec w \cdot \vec x_i - b) \ge 1$ is set to _prevent_ any datapoint to fall within the margin**. Hence, the optimization goal is to:  
+The distance between these two hyperplanes is $\frac{2}{||\vec w||}$, and the optimization goal is to maximize the margin (width), i.e. minimize $||\vec w||$. **Another constraint $y_i \times (\vec w \cdot \vec x_i - b) \ge 1$ is set to _prevent_ any datapoint to fall within the margin**. Hence, the optimization goal is to:  
 
 + Minimize $||\vec w||$ subject to $y_i (\vec w \cdot \vec x_i - b) \ge 1$, for $i = 1... n$
 
-&nbsp;&nbsp;&nbsp;&nbsp; Note that **with hard-margin, the hyperplane is entirely determined by $\vec x$ that is closest to it**, i.e. the support vectors. It's likely causing over-fitting if data is not linearly separable.  
+Note that **with hard-margin, the hyperplane is entirely determined by $\vec x$ that is closest to it**, i.e. the support vectors. It's likely causing over-fitting if data is not linearly separable.  
 
 #### Soft-margin
 
 [Soft-margin, wikipedia](https://en.wikipedia.org/wiki/Support-vector_machine#Soft-margin)  
-&nbsp;&nbsp;&nbsp;&nbsp; Soft-margin SVM is an extension on hard-margin, with **hinge-loss function** introduced. Intuitively, hinge-loss is to penalize mis-classfications, i.e. data is on the wrong side of the hyperplane. If $\vec x_i$ lies on the correct side of the margin, hinge-loss is zero.  
-&nbsp;&nbsp;&nbsp;&nbsp; **For data on the wrong side of the margin, the hinge-loss value is proportional to the distance from the margin, i.e. for wrong data, the farther from the margin, the larger the hinge loss**. There're two ways to introduce the optimization goal:  
+Soft-margin SVM is an extension on hard-margin, with **hinge-loss function** introduced. Intuitively, hinge-loss is to penalize mis-classfications, i.e. data is on the wrong side of the hyperplane. If $\vec x_i$ lies on the correct side of the margin, hinge-loss is zero.  
+**For data on the wrong side of the margin, the hinge-loss value is proportional to the distance from the margin, i.e. for wrong data, the farther from the margin, the larger the hinge loss**. There're two ways to introduce the optimization goal:  
 
 1. Minimize $\lambda\lVert \vec w \rVert^2 + \frac 1 n \sum_{i=1}^n \max\left(0, 1 - y_i(\vec w x_i + w_0)\right)$
     + $\lambda$ for controlling the tradeoff between margin size and $\vec x_i$ on the right side
@@ -203,12 +208,12 @@ Prove the margin width is $\frac{2}{||\vec w||}$:
       + as $C$ increases, margin widens and more mis-classifications
 3. The relationship between $C$ and $\lambda$ is: $C = \frac{1}{\lambda}$, or more precisely: $C = \frac{1}{2n\lambda}$
 
-&nbsp;&nbsp;&nbsp;&nbsp; The second forumulation removes the non-differentiable $\max$ function and allows the optimization to be solved using quadratic programming, it's called _primal problem_ of SVM.  
+The second forumulation removes the non-differentiable $\max$ function and allows the optimization to be solved using quadratic programming, it's called _primal problem_ of SVM.  
 
 #### Hinge Loss
 
 [Hinge-loss, wikipedia](https://en.wikipedia.org/wiki/Hinge_loss)  
-&nbsp;&nbsp;&nbsp;&nbsp; The hinge loss is used for "maximum-margin" classification, most notably for support vector machines. For an intended output $y_i = [+1, -1]$ and a classifier score $y, y \in R$, the hinge-loss of the prediction $y$ is defined as:  
+The hinge loss is used for "maximum-margin" classification, most notably for support vector machines. For an intended output $y_i = [+1, -1]$ and a classifier score $y, y \in R$, the hinge-loss of the prediction $y$ is defined as:  
 
 + $\ell(y) = \max(0, 1 - y_i \cdot y)$
   + $y_i = [+1, -1]$, i.e. the label for each $i$ observation
@@ -225,12 +230,12 @@ Prove the margin width is $\frac{2}{||\vec w||}$:
   + when $y_i = -1$ and $-1 < y < 0$
     + similar to when $y_i = +1$ and $1 > y > 0$
 
-&nbsp;&nbsp;&nbsp;&nbsp; Intuitively, hinge-loss is to penalize the mis-classifications. If data is correctly classified, the hinge-loss is just zero. **But if data is mis-classified (have different sign), the hinge-loss will increses with the the datapoint's distance from correct hyperplane.** In other words, when $y_i$ and $y$ have opposite signs, hinge loss increases linearly with $y$. Overall, we want to have _less mis-classifications_, i.e. _lower hinge-loss_.  
+Intuitively, hinge-loss is to penalize the mis-classifications. If data is correctly classified, the hinge-loss is just zero. **But if data is mis-classified (have different sign), the hinge-loss will increses with the the datapoint's distance from correct hyperplane.** In other words, when $y_i$ and $y$ have opposite signs, hinge loss increases linearly with $y$. Overall, we want to have _less mis-classifications_, i.e. _lower hinge-loss_.  
 
 #### Slack Variable
 
 [Slack variable, wikipedia](https://en.wikipedia.org/wiki/Slack_variable)  
-&nbsp;&nbsp;&nbsp;&nbsp; In an optimization problem, a slack variable is a variable that is added to an inequality constraint to transform it into an equality. **Introducing a slack variable replaces an inequality constraint with an equality constraint and a non-negativity constraint on the slack variable**.  
+In an optimization problem, a slack variable is a variable that is added to an inequality constraint to transform it into an equality. **Introducing a slack variable replaces an inequality constraint with an equality constraint and a non-negativity constraint on the slack variable**.  
 
 ##### Example of Slack Variable
 
@@ -253,8 +258,8 @@ $\max \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i,j=1}^{m}y_iy_j\alpha_i\alpha_j
 
 [Kernel method, wikipedia](https://en.wikipedia.org/wiki/Kernel_method)  
 [The Kernel Trick, quora](https://dscm.quora.com/The-Kernel-Trick)
-&nbsp;&nbsp;&nbsp;&nbsp; In its simplest form, the kernel trick means transforming data into another dimension that has a clear dividing margin between classes of data. Kernel methods require only a user-specified kernel, i.e., a **similarity function** over pairs of data points in raw representation.  
-&nbsp;&nbsp;&nbsp;&nbsp; Kernel methods owe their name to the use of kernel functions, which enable them to operate in a _high-dimensional, implicit feature space_ without ever computing the coordinates of the data in that space, but rather **by simply computing the inner products between the images of all pairs of data in the feature space**. This operation is often computationally cheaper than the explicit computation of the coordinates. This approach is called the _"kernel trick"_.  
+In its simplest form, the kernel trick means transforming data into another dimension that has a clear dividing margin between classes of data. Kernel methods require only a user-specified kernel, i.e., a **similarity function** over pairs of data points in raw representation.  
+Kernel methods owe their name to the use of kernel functions, which enable them to operate in a _high-dimensional, implicit feature space_ without ever computing the coordinates of the data in that space, but rather **by simply computing the inner products between the images of all pairs of data in the feature space**. This operation is often computationally cheaper than the explicit computation of the coordinates. This approach is called the _"kernel trick"_.  
 
 #### Trick with Inner Product
 
@@ -283,8 +288,8 @@ To transform data using kernel, we could do it manually, or using the property i
   + $= x_{i1}^2x_{j1}^2 + x_{i2}^2x_{j2}^2 + 2 \cdot x_{i1}x_{i2}x_{j1}x_{j2}$
     + expand the square, $1$ operation
 
-&nbsp;&nbsp;&nbsp;&nbsp; By just computing the dot product in the original space and raising the result (a scalar) to a power, we can get the same results but with less operations. In the previous example, the kernel function is (linear): $K(x_i, x_j) = (a \langle x_i, x_j \rangle + b)^n$.  
-&nbsp;&nbsp;&nbsp;&nbsp; In short, the Kernel trick is a 'trick' because that **mapping does not need to be ever computed**. **If our algorithm can be expressed only in terms of a inner product between two vectors, all we need is replace this inner product with the inner product from some other suitable space**. That is where resides the “trick”: wherever a dot product is used, it is replaced with a Kernel function.  
+By just computing the dot product in the original space and raising the result (a scalar) to a power, we can get the same results but with less operations. In the previous example, the kernel function is (linear): $K(x_i, x_j) = (a \langle x_i, x_j \rangle + b)^n$.  
+In short, the Kernel trick is a 'trick' because that **mapping does not need to be ever computed**. **If our algorithm can be expressed only in terms of a inner product between two vectors, all we need is replace this inner product with the inner product from some other suitable space**. That is where resides the “trick”: wherever a dot product is used, it is replaced with a Kernel function.  
 
 #### Gaussian Kernel, or Radial Basis Function
 
@@ -317,7 +322,7 @@ An inner product is _a generalization of the dot product_. In a vector space, **
   3. $\langle \vec v, \vec w \rangle = \langle \vec w, \vec v \rangle$
   4. $\langle \vec v, \vec v \rangle \ge 0$ and $\langle \vec v, \vec v \rangle = 0$ if and only if $\vec v = 0$
 
-&nbsp;&nbsp;&nbsp;&nbsp; In linear algebra, an **inner product space** is a vector space with an additional structure called an inner product. This additional structure associates each pair of vectors in the space with a scalar quantity known as the inner product of the vectors.  
+In linear algebra, an **inner product space** is a vector space with an additional structure called an inner product. This additional structure associates each pair of vectors in the space with a scalar quantity known as the inner product of the vectors.  
 
 + Inner Producgt of real numbers, $x, y \in R$
   + $\langle x, y \rangle := xy$
@@ -336,7 +341,7 @@ $\langle \vec a, \vec b \rangle = a_1b_1 + a_2b_2 + a_3b_3 = 21 - 8 -3 = 10$ uni
 ### Quadratic Programming
 
 [Quadratic programming, wikipedia](https://en.wikipedia.org/wiki/Quadratic_programming)  
-&nbsp;&nbsp;&nbsp;&nbsp; Quadratic programming (QP) is the process of solving a special type of mathematical optimization problem—specifically, a (linearly constrained) quadratic optimization problem, that is, the problem of optimizing (minimizing or maximizing) a quadratic function of several variables subject to linear constraints on these variables. Quadratic programming is a particular type of nonlinear programming.  
+Quadratic programming (QP) is the process of solving a special type of mathematical optimization problem—specifically, a (linearly constrained) quadratic optimization problem, that is, the problem of optimizing (minimizing or maximizing) a quadratic function of several variables subject to linear constraints on these variables. Quadratic programming is a particular type of nonlinear programming.  
 
 ## Appendix: References
 
