@@ -74,11 +74,11 @@ Entropy in information theory:
     - of the data produced by a source
   - typically measured in bits (alternatively called "shannons")
 
-When the data source has a lower-probability value (i.e., when a low-probability event occurs), the event carries more "information" ("surprisal") than when the source data has a higher-probability value. The amount of information conveyed by each event defined in this way becomes a random variable whose expected value is the information entropy. 
+When the data source has a lower-probability value (i.e., when a low-probability event occurs), the event carries more "information" ("surprisal") than when the source data has a higher-probability value. The amount of information conveyed by each event defined in this way becomes a random variable whose expected value is the information entropy.  
 
-Entropy is zero when one outcome is certain to occur. The entropy quantifies these considerations when a probability distribution of the source data is known. The meaning of the events observed (the meaning of messages) does not matter in the definition of entropy. Entropy only takes into account the probability of observing a specific event, so the information it encapsulates is information about the underlying probability distribution, not the meaning of the events themselves. 
+Entropy is zero when one outcome is certain to occur. The entropy quantifies these considerations when a probability distribution of the source data is known. The meaning of the events observed (the meaning of messages) does not matter in the definition of entropy. Entropy only takes into account the probability of observing a specific event, so the information it encapsulates is information about the underlying probability distribution, not the meaning of the events themselves.  
 
-This implies that casting a die has more entropy than tossing a coin because each outcome of the die has smaller probability than each outcome of the coin. 
+This implies that casting a die has more entropy than tossing a coin because each outcome of the die has smaller probability than each outcome of the coin.  
 
 ## Examples of Entropy
 
@@ -113,7 +113,7 @@ This implies that casting a die has more entropy than tossing a coin because eac
     - i.e. probability of each symbol times number of questions needed
     - i.e. $(0.5 \times 1) - (0.125 \times 3) - (0.125 \times 3) - (0.25 \times 2) = 1.75$
 
-$M1$ has entropy $2$, while $M2$ has entropy $1.75$. On average, we need fewer questions to find the correct symbol with $M2$. In terms of information, it's saying that **$M2$ has less information because there is _less uncertainty or suprise_ about its output** (less information needed to store the result, i.e. fewer bits needed). Claude Shannon calls this *measure of uncertainty*, the _entropy_.  
+$M1$ has entropy $2$, while $M2$ has entropy $1.75$. On average, we need fewer questions to find the correct symbol with $M2$. In terms of information, it's saying that **$M2$ has less information because there is _less uncertainty or suprise_ about its output** (less information needed to store the result, i.e. fewer bits needed). Claude Shannon calls this _measure of uncertainty_, the _entropy_.  
 
 - entropy $H = \sum_{i=1}^{n} p_i \times (\text{number of questions})_i$
   - $= \sum_{i=1}^{n} p_i \times \log_2(\text{number of outcomes at the level})_i$
