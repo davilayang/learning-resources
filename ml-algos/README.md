@@ -4,6 +4,8 @@
 
 ## Sections
 
+- TODO: for each algorithm, add a section on "assumption"
+
 ### Basic Concepts
 
 - Supervised Learning vs. Unsupervised Learning
