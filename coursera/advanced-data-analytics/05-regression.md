@@ -102,23 +102,21 @@
 
 ### Variable Selections
 
-- Forward Selection
+- **Forward Selection**
   - Begins with null model (0 independent variable)
-- Backward Elimination
+- **Backward Elimination**
   - Begins with full model (all of the independent variables)
-- Extra-Sum-of-Squares F-test
+- **Extra-Sum-of-Squares F-test**
   - ...
 - Regularization
-  - Lasso Regression
+  - **Lasso Regression**
     - Completely remove the X variables that are not important in predicting y
     - NOTE: Lasso AS "套索", so non-relevant variables are looped and removed from the equation!
-  - Ridge Regression
+  - **Ridge Regression**
     - Minimize the impact from X variables that are not important
     - Not removing any X
-  - Elastic Net Regression
-
+  - **Elastic Net Regression**
     - Test both above, or the hybrid of the two
-
 
 ## Model Interpretations
 
@@ -174,6 +172,66 @@
     - NOTE: Variance-Over
   - https://www.coursera.org/learn/regression-analysis-simplify-complex-data-relationships/supplement/jtFae/underfitting-and-overfitting
 
+## Hypothesis Testing with Categorical Variables
+
+- https://www.coursera.org/learn/regression-analysis-simplify-complex-data-relationships/lecture/Zbmic/hypothesis-testing-with-chi-squared
+- https://www.coursera.org/learn/regression-analysis-simplify-complex-data-relationships/supplement/DMwWu/chi-squared-tests-goodness-of-fit-versus-independence
+- Chi-Squared Tests (χ²)
+  - Hypothesis Testing with Categorical Variables
+  - Check significance whether one or more categorical variables follow expected distributions
+- χ²: Goodness of Fit test
+  - Whether an observed categorical variable follows an expected distribution
+  - Hypotheses
+    - NULL: The categorical variable does follow the expected distribution
+    - ALT: The categorical variable does NOT follow the expected distribution
+  - E.g. "the number of website visitors to be the same for each day of the week"
+    1. Identify the Null and Alternative Hypotheses
+       - NULL: the number of website visitors is equal on any given day
+       - ALT: the number of website visitors is not equal across the days of the week
+    2. Calculate the chi-square test statistic (𝛘2)
+       - Sum of
+         - Squared (`observed` - `expected`), divided by `expected`
+    3. Calculate the p-value
+       - `stats.chisquare(f_obs = Observations, f_exp = Expectations)`
+    4. Make a conclusion
+- χ²: Test for Independence
+  - Whether or not two categorical variables are associated with each other
+  - Hypotheses
+    - NULL: the two categorical variables are independent.
+    - ALT: the two categorical variables are NOT independent
+  - E.g. "if the device used to visit your clothing store (Mac or PC) is independent from the visitor’s membership status (Member or Guest)"
+    1. Hypotheses
+       - H0: The type of device a website visitor uses to visit the website is independent of the visitor’s membership status.
+       - Ha: The type of device a website visitor uses to visit the website is not independent of the visitor’s membership status.
+    2. Test Statistics
+       - TODO: add it and why it is defined like that
+    3. p-value
+       - `stats.contingency.chi2_contingency(Observations)`
+
+## Hypothesis Testing with Categorical Variable and Continuous Variable
+
+- ANONA, Analysis of Variance
+  - Statistical techniques that 
+    - test the difference of means between three or more groups
+  - Extension of t-test (two groups)
+  - One-way ANOVA
+    - Compare the means of one Continuous y based on three or more 
+      - of one categorical variable
+  - Two-way ANOVA
+    - Compare the means of one Continuous y based on three or more groups
+      - of two categorical variables
+- MANOVA, Multivariate Analysis of Variance
+  - Compare two or more continuous y vary according to categorical X
+  - One-way MANOVA
+  - Two-way MANOVA
+- ANCOVA, Analysis of CoVariance
+  - Statistical techniques that 
+    - test the difference of means between three or more groups
+    - controlling for the effects of "covariates" (i.e. variables irrelevant to your test)
+- MANCOVA
+  - Compare two or more continuous y
+- https://www.coursera.org/learn/regression-analysis-simplify-complex-data-relationships/lecture/IuRtP/more-dependent-variables-manova-and-mancova
+
 ## Snippets
 
 **We really want to get down to which pages or which actions that people are taking on a website that's indicative of them being a high-value customer or someone who makes multiple purchases within a year.**
@@ -200,3 +258,19 @@ Many people have trouble remembering which is the independent variable and which
 (Independent variable) causes a change in (Dependent Variable) and it isn't possible that (Dependent Variable) could cause a change in (Independent Variable).
 
 ##
+
+- https://www.coursera.org/learn/regression-analysis-simplify-complex-data-relationships/lecture/lVRu3/answer-questions-with-regression-models
+o
+
+
+TOOD: 
+
+- What kind of test to use, how to choose among them?
+- Linear Regression
+  - assumpations
+  - interpretatiions
+  - evaluations
+- Logistic Regressin
+  - assumpations
+  - interpretatiions
+  - evaluations
