@@ -119,4 +119,12 @@ https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement
   - Handles collinearity (unlike logistic or linear regression)
 - Cons
   - Prone to over-fitting
+- Impurity 
+  - Split on the criterion that minimize the impurity
+  - Degree of mixture with respect to class
+  - Impurity = 0 means the child nodes contain only N for one class and 0 for another class
+  - High Impurity is when both child nodes have equal number for both classes
+  - ...
+- Gini Impurity
+  - ...
 - https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement/zShQK/explore-decision-trees
