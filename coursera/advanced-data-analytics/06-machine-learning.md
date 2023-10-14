@@ -46,6 +46,77 @@ https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement
 - “zero frequency” problem
 - https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement/1Uunt/more-about-evaluation-metrics-for-classification-models
 
-## K Means
+## Clustering
 
+- Partitioning vs Clustering
+  - Partitioning tries to _partition_ the data space into partitions, therefore no data point will be left out
+    - I.e. all points must be assigned to one of the clusters
+    - K-Means is a partitioning algorithm
+  - Clustering tries to cluster data points in the data space
+    - But outlying points could exist outside any of the clusters
+- Inter-cluster vs Intra-cluster
+  - Inter means "between two things", so "Inter-cluster" is between the given two clusters
+    - **Inter-cluster distance** measures the distance between two clusters
+  - Intra means "within the given thing"
+    - **Intra-cluster distance** measures the distance of data points within a given cluster
+  - Higher "Inter-cluster" and Lower "Intra-cluster" are preferred
+    - I.e. clusters are separated with greater distance
+    - I.e. data points in a given cluster is compacted together
+- Inertia
+  - Sum of the squared distances between each data point and its nearest centroid
+    - $\sum (x - c)^2$
+  - Within the same cluster, the distance relationship between data points (observations)
+    - Aggregated for all the clusters, as a single score for the metric
+  - Mostly about the "intra-cluster" distance
+  - Lower inertia is preferred, evaluated by "Elbow Method"
+- Silhouette Score
+  - Mean of the Silhouette Coefficients of all the observations in the model
+    - Coefficients (for each data point): $(b - a) \div \max(a, b)$
+      - `a` as the mean distance from "a given data point" to "all other data points" in the same cluster
+      - `b` as the mean distance from "a given data point" to "all data points" in the _next closest cluster_
+      - value between -1 and 1
+        - 1 means a data point is nicely sit within its own cluster and well-separated from closest cluster
+        - 0 means a data point is on the boundary of its own cluster
+        - -1 means a data point is in the wrong cluster
+  - Compared to Inertia, also consider the separation between clusters (i.e. inter-cluster)
+  - About both the "inter-" and "intra-" cluster distance
+- https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement/V5RFG/more-about-inertia-and-silhouette-coefficient-metrics
+
+### K Means
+
+- Minimize variance between data points in each cluster
+- K Means Steps
+  1. Randomly place centroids in the data space
+  2. Assign each data point to the nearest centroid
+  3. Update the location of each centroid
+     - As mean position of all the data points assigned to it
+  4. Repeat Step 2 and 3 until converges
+     - Converged when distance to new position is smaller than a given threshold
+- K-means++
+  - Randomly initialises centroids based on a probability calibration
+  - Choosing a data point as the first centroid
+    - Next use other data points as centroids
+    - Probability of being a data point selected as a centroid increases the farther it is from other centroids
+    - Ensure that initial centroids are not placed together (thus less likely to converge in local minima)
+- Using distance between observations means you have to "scale" the data before fitting
 - https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement/GUuy9/more-about-k-means
+
+### Other Algorithms
+
+- Why? Different way to cluster data in the data space
+- DBSCAN
+  - Density-based Spatial Clustering of Applications with Noise
+  - Searches for high-density region in data space
+- Agglomerative clustering
+  - Start by assign every point to its own cluster
+    - Then combine the cluster by inter-cluster distance
+- https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement/yynh1/clustering-beyond-k-means
+
+## Decision-Trees
+
+- Pros
+  - No assumptions regarding the data distribution
+  - Handles collinearity (unlike logistic or linear regression)
+- Cons
+  - Prone to over-fitting
+- https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement/zShQK/explore-decision-trees
