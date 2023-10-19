@@ -20,6 +20,7 @@
   - [ ] Decision Tree
   - [ ] Random Forest
   - [ ] Naive Bayes
+  - [ ] XGBoost
 - Neural Network
   - [ ] ...
 - ...
