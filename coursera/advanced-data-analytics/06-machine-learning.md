@@ -127,4 +127,26 @@ https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement
   - ...
 - Gini Impurity
   - ...
+- Bagging: Bootstrap Aggregation
+  - "Bootstrapping", as sampling with replacement
+    - Base learner samples data with replacement, so Bootstrapping
+    - Each observation could be sampled multiple times, randomly
+  - Aggregate results from multiple learners, so Aggregation
+    - Ensemble Learning, building multiple models and aggregate their predictions
+  - Reducing Variance
+    - Standalone models can result in high variance
+      - High Variance means model is likely to over-fit
+    - Aggregating base models' predictions in an ensemble help reduce variance
+  - Allow parallel training
+  - Random Forest
+    - If you build a bagging ensemble of decision trees but take it one step further by randomizing the features used to train each base learner, the result is called a random forest.
+- Boosting: "boost" from preceded learner
+  - sequentially built 
+  - Adaptive Boosting
+    - Consecutive learner assigns larger weight to observations that were incorrectly labelled
+  - Gradient Boosting
+    - Consecutive learner is built to predict the "residual error" of the preceding learner
+    - High Accuracy and More scalable than AdaBoost
+- https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement/Chgiw/more-about-random-forests
+- https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement/1PHLr/bagging-how-it-works-and-why-to-use-it
 - https://www.coursera.org/learn/the-nuts-and-bolts-of-machine-learning/supplement/zShQK/explore-decision-trees

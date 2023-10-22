@@ -32,8 +32,10 @@
   - [ ] NMF
   - ...
 - Clustering
-  - [ ] K Means
+  - [x] K Means
   - [ ] K-Nearest Neighbour
+  - [ ] DBSCAN
+  - [ ] Agglomerative clustering
   - [ ] ...
 ...
 
