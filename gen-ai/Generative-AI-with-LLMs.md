@@ -25,7 +25,39 @@ TODO: include the graph
 
 ## Pre-training
 
-...
+- Model architecture affects how model is trained and what it could do
+- Encoder-only Models (Auto-encoding Models)
+  - Trained with "Masked Language Modelling"
+    - Token (A word) of input sequence (sentence) is masked
+    - Model is asked to predict the masked token to reconstruct the original sentence
+  - Encoded "Bi-directional context" of the sequence (before and after the token)
+    - Understand the full-context of the token, not just the word before the token
+  - Best for tasks requiring full context
+    - Sentiment Analysis
+    - Named Entity Recognition
+    - Word Classification
+- Encode Decode Models
+  - Trained with "Span Corruption" (but different for others)
+    - Mask random sequences (more than one tokens) in a sequence
+  - Best for tasks
+    - Translation
+    - Text Summarisation
+    - Question Answering
+  - E.g. T5, BART
+- Decoder-only Models (Auto-regressive Models)
+  - Trained with "Causal Language Modelling"
+    - Model is asked to predict next token based on previous sequence of tokens
+    - Model can only "see" tokens leading up to the token being predicted ("uni-directional")
+  - Bet for tasks
+    - Text Generation
+    - Larger model seem to be "general"
+  - E.g. GPT, BLOOM
+- Quantisation
+  - To reduce the memory required to store and train models
+  - By reducing the precision off the model weights
+- Chinchilla Scaling Laws
+  - Larger doesn't always mean better, maybe it is under-trained
+    - Consider more data but fewer parameters (e.g. LLaMA)
 
 ## Prompt Engineering
 
