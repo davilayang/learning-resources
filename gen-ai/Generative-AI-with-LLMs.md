@@ -74,6 +74,49 @@ TODO: include the graph
   - If still incorrect inferences after five or six shots, it may not work at all
     - Consider other training techniques
 
+## Instruction Fine-Tuning
+
+- Supervised Learning
+- Train model on example that demonstrate "How it should respond"
+  - E.g. "Classify this review: ... ||| positive"
+- Fine-tune for a single task
+  - Around 500~1000 examples should be enough
+  - Catastrophic Forgetting
+    - Full fine-tuning modifies the weights of base LLM
+    - Improves on the single task, but degrades on others
+- Fine-tune for multiple tasks
+  - Requires more data (compare to single task)
+  - FLAN: Fine-tuned LAnguage Net
+
+## Parameter Efficient Fine-Tuning
+
+> https://www.coursera.org/learn/generative-ai-with-llms/lecture/A6TDx/lab-2-walkthrough
+
+- Update a small subset of parameters OR add a small number of new parameters (layers)
+- Selective Method
+  - Fine-tune on subset of initial LLM parameters
+- Re-parameterization Method
+  - Fine-tune by re-parameterising model weights using a low-rank representation
+  - LoRA: Low Rank Adaptation
+    - https://www.coursera.org/learn/generative-ai-with-llms/lecture/NZOVw/peft-techniques-1-lora 
+- Additive Method
+  - Add trainable layers or parameters to base LLM model
+  - Adapters: Add new trainable layers
+  - Soft Prompt: Manipulate inputs to achieve better performance (with frozen parameters)
+    - E.g. Prompt tuning
+    - https://www.coursera.org/learn/generative-ai-with-llms/lecture/8dnaU/peft-techniques-2-soft-prompts
+
+## LLM Evaluation
+
+- Similarity?
+- Below are N-grams based Evaluations
+- ROUGE: Recall-oriented under Study for Jesting Evaluation
+  - Text Summarisation
+  - Compare generated summary with one or more reference summaries
+- BLEU: Bilingual Evaluation Under Study
+  - Text Translation
+  - Compare generated translation with human translations
+
 ## LLM Configuration
 
 - Top-K Sampling
