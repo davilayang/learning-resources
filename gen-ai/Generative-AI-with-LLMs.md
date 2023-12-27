@@ -17,7 +17,7 @@ TODO: include the graph
 3. **Adapt and Align Model** (iterative)
    - Prompt Engineering
    - Fine-tuning: Supervised Learning
-   - Align with Human Feedback: Reinforcement Learning
+   - Align with Human Feedback: Reinforcement Learning (RLHF)
    - Evaluate
 4. **Application Integration**
    - Optimize and Deploy model for inference
@@ -105,6 +105,14 @@ TODO: include the graph
   - Soft Prompt: Manipulate inputs to achieve better performance (with frozen parameters)
     - E.g. Prompt tuning
     - https://www.coursera.org/learn/generative-ai-with-llms/lecture/8dnaU/peft-techniques-2-soft-prompts
+
+## Reinforcement Learning from Human Feedback (RLHF)
+
+- Personalised LLM through Feedback?
+- Reinforcement Learning:
+  - Agent & Environment
+  - Objective, Action Space
+- ...
 
 ## LLM Evaluation
 
