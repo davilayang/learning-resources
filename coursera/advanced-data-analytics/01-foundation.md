@@ -1,5 +1,9 @@
 # Foundation of Data Science
+<!-- markdownlint-disable MD034 -->
 
+## Key Takeaway
+
+- Frame the problem to avoid scope creep
 
 ## Interview
 
