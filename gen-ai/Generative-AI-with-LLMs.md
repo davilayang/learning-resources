@@ -140,3 +140,21 @@ TODO: include the graph
   - Affect shape of probability distribution
     - Higher means more randomness (more close to uniform distribution among tokens)
     - Lower means less randomness in the output (probability distribution is more central to one token)
+
+## Optimization for Deployment
+
+- Distillation
+  - Larger "Teacher" that trains a smaller "Student" model
+  - Use the Student model for inference
+- (Post-training) Quantization
+  - Transform model's weights ot a lower precision representation
+- Pruning
+  - Remove redundant model parameters contribute little to the model's performance
+  - In practice, only small % in LLMs are zero-weights
+
+## LLM Application Frameworks
+
+- Retrieval Augmented Generation (RAG)
+  - Give model access to additional external data at inference time
+    - E.g. new information, proprietary knowledge..etc
+  
