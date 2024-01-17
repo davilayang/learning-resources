@@ -22,4 +22,12 @@ TODO:
   - Q: How I would use LLM?
   - Q: Impact?
 
-## ...
+## Approaches to Tailor LLM
+
+- Prompt engineering with context
+  - In the prompt to LLM, provide enough context to ensure proper response
+  - The better frame the query, the more accurate response from LLM. I.e. good enough context
+- Retrieval Augmented Generation, RAG.
+  - Store data in a vector database, then retrieve it and include in the prompt to LLM
+- Fine-tuned model
+  - Further train the model on data (of expected response) to ensure proper response
